@@ -3,11 +3,13 @@ default: &default
 #  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #  timeout: 5000
   adapter: mysql2
-  database: portfolio_dev
-  username: root
-  password: password
-  host: 127.0.0.1
-  encoding: utf8
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_bin
+  username: <%= ENV['DB_USER'] || 'root' %>
+  password: <%= ENV['DB_PSWD'] || 'password' %>
+  pool: <%= ENV['RAILS_MAX_THREADS'] || 5 %>
+  timeout: 5000
 
 development:
   <<: *default
