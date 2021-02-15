@@ -8,7 +8,7 @@ default: &default
   collation: utf8mb4_bin
   username: <%= ENV['DB_USER'] || 'root' %>
   password: <%= ENV['DB_PSWD'] || 'password' %>
-  database: portfolio_dev
+  database: portfolio_db
   hostname: localhost
   pool: <%= ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
@@ -23,4 +23,4 @@ test:
 
 production:
   <<: *default
-#  database: db/production.sqlite3
+
