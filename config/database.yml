@@ -10,7 +10,7 @@ default: &default
   password: <%= ENV['DB_PSWD'] || 'password' %>
   database: portfolio_dev
   hostname: localhost
-  pool: <%= ENV['RAILS_MAX_THREADS'] || 5 %>
+  pool: <%= ENV.fetch['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
 
 
