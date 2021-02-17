@@ -6,18 +6,15 @@ default: &default
   encoding: utf8mb4
   charset: utf8mb4
   collation: utf8mb4_bin
-  username: <%= ENV['DB_USER'] || 'root' %>
-  password: <%= ENV['DB_PSWD'] || 'password' %>
-  database: portfolio_dev
-  hostname: localhost
-  pool: <%= ENV.fetch['RAILS_MAX_THREADS'] || 5 %>
+  username: <%= ENV['DB_USERNAME'] || 'root' %>
+  password: <%= ENV['DB_PASSWORD'] || 'password' %>
+  database: database_portfolio
+  pool: <%= ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
-
-
 
 development:
   <<: *default
-#  database: db/development.sqlite3
+
 
 test:
   <<: *default
@@ -25,6 +22,7 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV[‘DATABASE_URL’] %>
- database: db/production
-
+  url: <%= ENV['DATABASE_URL'] %>
+  username: <%= ENV['DATABASE_USERNAAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  master_key: <%= ENV['RAILS_MASTER_KEY'] %>
